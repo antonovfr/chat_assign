@@ -2,9 +2,9 @@
 /**
  * @author: Nicolas Merle
  * @version 1.0
- * @package messages
+ * @package message
  */
-    class messages {
+    class message {
         /**
          * Id of the message used to store it in the database
          * @var integer
@@ -19,7 +19,12 @@
          * The author of the message
          * @var string
          */
-        private static $user;
+        private static $author;
+        /**
+         * The recipient of the message
+         * @var string
+         */
+        private static $recipient;
         /**
          * the content of the message sent
          * @var string
@@ -32,7 +37,10 @@
             return self::$timestamp;
         }
         function get_user() {
-            return self::$user;
+            return self::$author;
+        }
+        function get_recipient() {
+            return self::$recipient;
         }
         function get_message() {
             return self::$message;
