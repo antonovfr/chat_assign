@@ -1,5 +1,10 @@
 <?php
 
+ob_start();
+session_start();
+//set timezone
+date_default_timezone_set('Europe/Amsterdam');
+
 //include the user class
 $userpath = $_SERVER['DOCUMENT_ROOT'];
 $userpath .= "/classes/user.php";

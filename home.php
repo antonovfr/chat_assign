@@ -1,8 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: antonov
- * Date: 15/07/17
- * Time: 15:16
- */
-var_dump($_SESSION);
+//include config to connect to the sqlite server
+require_once('db/config.php');
+//if not logged in redirect to login page
+if(!$user->is_logged_in()){
+    header('Location: login.php');
+    exit;
+}
+?>
+
+<?php
+require('layout/header.php');

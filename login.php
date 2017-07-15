@@ -1,5 +1,5 @@
 <?php
-//include config to connect to the sqlite server
+//include config to the sqlite server
 require_once('db/config.php');
 //check if already logged in move to home page
 if( $user->is_logged_in() ){ header('Location: home.php'); }
@@ -39,6 +39,9 @@ require('layout/header.php');
         }
         if(isset($_GET['action']) && $_GET['action'] == 'joined'){
             echo "<h2 class='bg-success'>Registration successful.</h2>";
+        }
+        if(isset($_GET['action']) && $_GET['action'] == 'logout'){
+            echo "<h2 class='bg-success'>Successfully logged out.</h2>";
         }
         ?>
         <form class="form-inline" role="form" method="post" action="" autocomplete="off">
