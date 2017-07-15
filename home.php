@@ -10,3 +10,6 @@ if(!$user->is_logged_in()){
 
 <?php
 require('layout/header.php');
+
+var_dump($_SESSION['name']);
+var_dump($_SESSION['id']);

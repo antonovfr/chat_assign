@@ -8,18 +8,6 @@
 require('password.php');
 
     class user {
-        /**
-         * Name of the user
-         * @var string
-         */
-        private $name;
-
-        public function get_name() {
-            return $this -> name;
-        }
-        public function set_name($name) {
-            $this->name = $name;
-        }
 
         public function login($hash, $password){
             $pass = new Password();

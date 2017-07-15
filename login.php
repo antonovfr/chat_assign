@@ -11,7 +11,8 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
     $hash = $db->get_hashed_password($_POST['name']);
     if($user->login($hash,$password)){
-        $user-> set_name($_POST['name']);
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['id'] = $db->get_user_id($_POST['name']);
         header('Location: home.php');
         exit;
 
@@ -28,8 +29,8 @@ require('layout/header.php');
 <body>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
-        <h1>Welcome to the bunk chat</h1>
-        <h2>Please sign up</h2>
+        <h1>Welcome to the bunq chat</h1>
+        <h2>Please sign in</h2>
         <?php
         //check for any errors
         if(isset($errors)){

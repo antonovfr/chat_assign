@@ -15,4 +15,4 @@ $user = new User();
 $dbpath = $_SERVER['DOCUMENT_ROOT'];
 $dbpath .= "/classes/database.php";
 include_once($dbpath);
-$db = new CredDatabase('db/ChatDB.db');
+$db = new ChatDatabase('db/ChatDB.db');

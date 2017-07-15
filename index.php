@@ -46,7 +46,7 @@ require('layout/header.php');
 <body>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
-        <h1>Welcome to the bunk chat</h1>
+        <h1>Welcome to the bunq chat</h1>
         <h2>Please sign up</h2>
         <?php
         //check for any errors
