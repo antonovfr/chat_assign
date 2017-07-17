@@ -7,7 +7,7 @@
 //Load the password class
 require('password.php');
 
-    class user {
+    class User {
 
         public function login($hash, $password){
             $pass = new Password();

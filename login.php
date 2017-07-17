@@ -2,7 +2,9 @@
 //include config to the sqlite server
 require_once('db/config.php');
 //check if already logged in move to home page
-if( $user->is_logged_in() ){ header('Location: home.php'); }
+if($user->is_logged_in()) {
+    header('Location: home.php');
+}
 
 
 //process login form if submitted
@@ -32,7 +34,7 @@ require('layout/header.php');
         <h1>Welcome to the bunq chat</h1>
         <h2>Please sign in</h2>
         <?php
-        //check for any errors
+        ////Displaying the errors raised
         if(isset($errors)){
             foreach($errors as $error){
                 echo '<p class="bg-danger">'.$error.'</p>';

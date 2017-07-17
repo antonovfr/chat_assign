@@ -65,7 +65,7 @@
 
             public function fetch_messages_for_conversation($recipientid, $senderid){
                 //fetch messages for a specific recipient
-                $statement = $this->prepare('SELECT senderid, message, timestamp FROM Messages WHERE recipientid = :recipient AND senderid = :sender OR recipientid = :sender AND senderid = :recipient');
+                $statement = $this->prepare('SELECT senderid, message, timestamp FROM Messages WHERE recipientid = :recipient AND senderid = :sender OR recipientid = :sender AND senderid = :recipient ORDER BY timestamp');
                 $statement->bindValue(':recipient', $recipientid, SQLITE3_INTEGER);
                 $statement->bindValue(':sender', $senderid, SQLITE3_INTEGER);
                 $Sqliteres = $statement->execute();

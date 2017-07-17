@@ -51,7 +51,7 @@ $(function() {
 
 (function( $ ){
     $.fn.fetch_messages = function() {
-        $.getJSON("message_retreiver.php", {senderid: $(this).attr('value')}, function(j) {
+        $.getJSON("message_retriever.php", {senderid: $(this).attr('value')}, function(j) {
             var list = $('.message_list');
             list.empty();
             if (j === null){
