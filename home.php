@@ -6,9 +6,9 @@ if(!$user->is_logged_in()){
     header('Location: login.php');
     exit;
 }
-?>
 
-<?php
+//define page title
+$title = 'bunq chat';
 require('layout/header.php');
 ?>
 

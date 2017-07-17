@@ -44,7 +44,8 @@ if(isset($_POST['submit'])) {
     }
 }
 
-
+//define page title
+$title = 'Registration page';
 //include simple html header
 require('layout/header.php');
 ?>

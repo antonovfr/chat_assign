@@ -23,7 +23,8 @@ if(isset($_POST['submit'])){
     }
 
 }//end if submit
-
+//define page title
+$title = 'Login page';
 //include simple html header
 require('layout/header.php');
 ?>
