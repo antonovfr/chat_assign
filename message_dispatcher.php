@@ -14,13 +14,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "You must enter a message and a recipient";
         exit;
     }
-//process login form if submitted
+
     if (isset($_POST['message']) && isset($_POST['recipientid'])) {
-        if(empty($_POST['recipientid'])){
-            http_response_code(404);
-            echo "User not found";
-            exit;
-        }
         $date = new DateTime();
         $date = $date->getTimestamp();
         $db->insert_message($_SESSION['id'], $_POST['recipientid'], $_POST['message'], $date);
@@ -29,5 +24,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     http_response_code(403);
-    echo "You cannot acces this page with a GET method";
+    echo "You cannot access this page with a GET method";
 }
