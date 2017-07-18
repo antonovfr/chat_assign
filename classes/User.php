@@ -22,7 +22,7 @@ require('Password.php');
             session_destroy();
         }
 
-        public function is_logged_in(){
+        public function isLoggedIn(){
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
                 return true;
             }

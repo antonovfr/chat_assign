@@ -2,7 +2,7 @@
 //include config to the sqlite server
 require_once('db/config.php');
 //check if already logged in move to home page
-if($user->is_logged_in()) {
+if($user->isLoggedIn()) {
     header('Location: home.php');
 }
 
@@ -11,10 +11,10 @@ if($user->is_logged_in()) {
 if(isset($_POST['submit'])){
 
     $password = $_POST['password'];
-    $hash = $db->get_hashed_password($_POST['name']);
+    $hash = $db->getHashedPassword($_POST['name']);
     if($user->login($hash,$password)){
         $_SESSION['name'] = $_POST['name'];
-        $_SESSION['id'] = $db->get_user_id($_POST['name']);
+        $_SESSION['id'] = $db->getUserId($_POST['name']);
         header('Location: home.php');
         exit;
 
@@ -51,7 +51,7 @@ require('layout/header.php');
         <form class="form-inline" role="form" method="post" action="" autocomplete="off">
             <div class="form-group">
                 <label class="sr-only">Name</label>
-                <input type="text" name='name' class="form-control" id="Name" placeholder="JohnDoe">
+                <input type="text" name='name' class="form-control" id="Name" placeholder="Username">
             </div>
             <div class="form-group">
                 <label class="sr-only" >Password</label>

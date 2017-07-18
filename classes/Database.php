@@ -14,7 +14,7 @@
          * @param $name string Name of the user for which you want to get the stored hash of the password
          * @return string The hashed password or error if an error occur
          */
-            public function get_hashed_password($name) {
+            public function getHashedPassword($name) {
                 try {
                     $statement = $this->prepare('SELECT hash FROM Users WHERE name = :name');
                     $statement->bindValue('name', $name);
@@ -32,7 +32,7 @@
          * @param $name string Name to be checked in the database
          * @return string The name returned by the database
          */
-            public function lookup_name($name){
+            public function lookupName($name){
                 //check if the name is already in use
                 $statement = $this->prepare('SELECT name FROM Users WHERE name = :name;');
                 $statement->bindValue(':name', $name, SQLITE3_TEXT);
@@ -46,7 +46,7 @@
          * @param $name string Name of the user
          * @param $hash string Hash of the user password
          */
-            public function insert_user($name,$hash){
+            public function insertUser($name,$hash){
                 //insert user into the database
                 $statement = $this->prepare('INSERT INTO Users (name,hash) VALUES (:name, :hash)');
                 $statement->bindValue(':name', $name,SQLITE3_TEXT);
@@ -59,7 +59,7 @@
          * @param $name string Name of the user for who we request the ID
          * @return integer ID of the user in the database
          */
-            public function get_user_id($name){
+            public function getUserId($name){
                 //fetch the id for an user
                 $statement = $this->prepare('SELECT id FROM Users WHERE name = :name;');
                 $statement->bindValue(':name', $name, SQLITE3_TEXT);
@@ -73,7 +73,7 @@
          * @param $id integer The ID we want to know the corresponding name for
          * @return string The name of the user that correspond to the ID in the database
          */
-            public function get_user_name($id){
+            public function getUserName($id){
                 //fetch the id for an user
                 $statement = $this->prepare('SELECT name FROM Users WHERE id = :id;');
                 $statement->bindValue(':id', $id, SQLITE3_INTEGER);
@@ -86,7 +86,7 @@
          * Fetch the list of all the users from the database
          * @return SQLite3Result An object that contains all the users from the database
          */
-            public function fetch_user_list(){
+            public function fetchUserList(){
                 //fetch the list of user using the chat
                 $statement = $this->prepare('SELECT id, name FROM Users');
                 $Sqliteres = $statement->execute();
@@ -99,7 +99,7 @@
          * @param $senderid integer The ID of the sender
          * @return SQLite3Result An object that contains all the messages from this conversation
          */
-            public function fetch_messages_for_conversation($recipientid, $senderid){
+            public function fetchMessagesForConversation($recipientid, $senderid){
                 //fetch messages for a specific recipient
                 $statement = $this->prepare('SELECT senderid, message, timestamp FROM Messages WHERE recipientid = :recipient AND senderid = :sender OR recipientid = :sender AND senderid = :recipient ORDER BY timestamp');
                 $statement->bindValue(':recipient', $recipientid, SQLITE3_INTEGER);
@@ -115,7 +115,7 @@
          * @param $message string Message sent
          * @param $timestamp integer Time at which the message has been sent
          */
-            public function insert_message($senderid,$recipientid,$message,$timestamp){
+            public function insertMessage($senderid,$recipientid,$message,$timestamp){
                 //send message to the database
                 $statement = $this->prepare('INSERT INTO Messages (senderid,recipientid,message,timestamp) VALUES (:senderid, :recipientid, :message, :timestamp)');
                 $statement->bindValue(':senderid', $senderid,SQLITE3_INTEGER);

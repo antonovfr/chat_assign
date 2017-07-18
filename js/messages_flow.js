@@ -19,7 +19,7 @@ $(function() {
         //If no recipient is chosen, raise a visual alert
         if (typeof(recipientid) === 'undefined'){
             userlist.addClass('recipient-error');
-            userlist.parent().append('<p class="error-message">Please choose a recipient</p>')
+            userlist.parent().append('<p class="error-message">Please choose a recipient</p>');
             return;
         }
         //Store the message in a variable

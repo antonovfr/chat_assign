@@ -2,7 +2,7 @@
 //include config to connect to the sqlite server
 require_once('db/config.php');
 //if not logged in redirect to login page
-if(!$user->is_logged_in()){
+if(!$user->isLoggedIn()){
     header('Location: login.php');
     exit;
 }
@@ -18,15 +18,7 @@ require('layout/header.php');
             <div class="col-md-3">
                 <div class="row">
                     <?php
-                        $SQLres=$db->fetch_user_list();
-                        if(!empty($SQLres)) {
-                            while ($row = $SQLres->fetchArray(SQLITE3_ASSOC)){
-                                extract($row);
-                                if($id != $_SESSION['id']) {
-                                    echo "<button class='list-group-item clickable' value='{$id}'>{$name}</button>";
-                                }
-                            }
-                        }
+                        $display->displayUsers($db);
                     ?>
                 </div>
             </div>
