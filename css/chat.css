@@ -16,3 +16,8 @@
 .recipient-error {
     border: 1px solid red;
 }
+
+.chat-user-list {
+    height: 85vh;
+    overflow: auto;
+}
