@@ -6,7 +6,10 @@
  * @package chat
  */
 
-
+/**
+ * Process all the form in the chat, checking that they are complete and executing the database calls
+ * Class FormProcessor
+ */
 class FormProcessor
 {
     /**

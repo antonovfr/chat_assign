@@ -22,6 +22,7 @@ if(!$user->isLoggedIn() ){
 //Instantiate the processor
 $processor = new MessagesProcessor();
 
+//Handle request
 if(isset($_GET['action']) && $_GET['action'] == 'retrieve') {
     $processor->retrieveMessages($db);
 } elseif(isset($_POST['action']) && $_POST['action'] == 'dispatch') {

@@ -7,6 +7,10 @@
 //Load the password class
 require('Password.php');
 
+/**
+ * Manage the user session
+ * Class User
+ */
 class User
 {
 

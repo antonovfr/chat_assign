@@ -4,6 +4,11 @@
  * @version 1.0
  * @package chat
  */
+
+/**
+ * Database used to store credentials and messages
+ * Class ChatDatabase
+ */
     class ChatDatabase extends SQLite3
     {
             function __construct($db)

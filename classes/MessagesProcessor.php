@@ -6,6 +6,10 @@
  * @package chat
  */
 
+/**
+ * Processing the request to dispatch or retrieve messages from the database
+ * Class MessagesProcessor
+ */
 class MessagesProcessor
 {
 
@@ -21,17 +25,17 @@ class MessagesProcessor
             echo "You must enter a sender";
             exit;
         } else {
+            $rows=[];
             $SQLres=$db->fetchMessagesForConversation($_SESSION['id'],$_GET['senderid']);
             if(!empty($SQLres)) {
                 while ($row = $SQLres->fetchArray(SQLITE3_ASSOC)) {
-                    extract($row);
-                    if($senderid==$_SESSION['id']){
+                    if($row['senderid']==$_SESSION['id']){
                         $row['user_name'] = 'me';
                     } else {
-                        $row['user_name'] = $db->getUserName($senderid);
+                        $row['user_name'] = $db->getUserName($row['senderid']);
                     }
 
-                    $row['date'] = date('m/d/Y H:i:s', $timestamp);
+                    $row['date'] = date('m/d/Y H:i:s', $row['timestamp']);
                     $rows[]= $row;
                 }
                 print json_encode($rows);
