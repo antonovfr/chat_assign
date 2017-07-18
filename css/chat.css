@@ -12,3 +12,7 @@
     bottom: 0;
 
 }
+
+.recipient-error {
+    border: 1px solid red;
+}
