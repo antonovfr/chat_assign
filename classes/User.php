@@ -2,10 +2,10 @@
 /**
  * @author: Nicolas Merle
  * @version 1.0
- * @package user
+ * @package User
  */
 //Load the password class
-require('password.php');
+require('Password.php');
 
     class User {
 
