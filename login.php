@@ -9,20 +9,8 @@ if($user->isLoggedIn()) {
 
 //process login form if submitted
 if(isset($_POST['submit'])){
-
-    $password = $_POST['password'];
-    $hash = $db->getHashedPassword($_POST['name']);
-    if($user->login($hash,$password)){
-        $_SESSION['name'] = $_POST['name'];
-        $_SESSION['id'] = $db->getUserId($_POST['name']);
-        header('Location: home.php');
-        exit;
-
-    } else {
-        $errors[] = 'Wrong username or password.';
-    }
-
-}//end if submit
+    $errors = $form->loginUser($db, $user);
+}
 //define page title
 $title = 'Login page';
 //include simple html header
@@ -36,7 +24,7 @@ require('layout/header.php');
         <h2>Please sign in</h2>
         <?php
         ////Displaying the errors raised
-        if(isset($errors)){
+        if($errors){
             foreach($errors as $error){
                 echo '<p class="bg-danger">'.$error.'</p>';
             }

@@ -10,7 +10,7 @@
 class Display
 {
     function displayUsers($db){
-        $SQLres=$db->fetch_user_list();
+        $SQLres=$db->fetchUserList();
         if(!empty($SQLres)) {
             while ($row = $SQLres->fetchArray(SQLITE3_ASSOC)){
                 extract($row);

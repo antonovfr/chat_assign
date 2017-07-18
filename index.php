@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
     $errors = $form->signUpFormCheck($db);
     //if no errors were raised, carry on with the processing
     if(!$errors){
-        $form->registerUser($db);
+        $errors = $form->registerUser($db);
     }
 }
 
