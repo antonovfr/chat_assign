@@ -15,7 +15,7 @@ $user = new User();
 $dbpath = $_SERVER['DOCUMENT_ROOT'];
 $dbpath .= "/classes/Database.php";
 include_once($dbpath);
-$db = new ChatDatabase('db/ChatDB.db');
+$db = new ChatDatabase($_SERVER['DOCUMENT_ROOT'].'/db/ChatDB.db');
 
 //Include the display class
 $dispath = $_SERVER['DOCUMENT_ROOT'];

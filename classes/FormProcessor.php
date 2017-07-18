@@ -3,7 +3,7 @@
 /**
  * @author: Nicolas Merle
  * @version 1.0
- * @package FormProcessing
+ * @package chat
  */
 
 
@@ -14,7 +14,7 @@ class FormProcessor
      * @param $db ChatDatabase The database is used to check if another user with the same name already exist
      * @return array An array containing all the errors that have been raised if any
      */
-    function signUpFormCheck($db)
+    public function signUpFormCheck($db)
     {
         $errors = [];
         if ($_POST['name']) {
@@ -38,7 +38,7 @@ class FormProcessor
      * @param $db ChatDatabase The database in which the user will be registered
      * @return array An array containing all the errors that have been raised if any
      */
-    function registerUser($db)
+    public function registerUser($db)
     {
         //hash the password
         $pass = new Password();
@@ -61,7 +61,8 @@ class FormProcessor
      * @param $user User The user which will be logged in
      * @return array An array containing all the errors that have been raised if any
      */
-    function loginUser($db, $user) {
+    public function loginUser($db, $user)
+    {
         $errors = [];
         $password = $_POST['password'];
         $hash = $db->getHashedPassword($_POST['name']);

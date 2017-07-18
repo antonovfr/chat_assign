@@ -18,7 +18,7 @@ require('layout/header.php');
             <div class="col-md-3">
                 <div class="row">
                     <?php
-                        $display->displayUsers($db);
+                        $display->displayUsersHTML($db);
                     ?>
                 </div>
             </div>

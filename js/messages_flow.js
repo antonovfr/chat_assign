@@ -29,12 +29,13 @@ $(function() {
         var jsonData = {};
         jsonData['recipientid'] = recipientid;
         jsonData['message'] = message;
+        jsonData['action'] = 'dispatch';
 
 
         // Submit the form using AJAX.
         $.ajax({
             type: 'POST',
-            url: "message_dispatcher.php",
+            url: "processors/messages_processors.php",
             data: jsonData
         })
 
@@ -74,7 +75,7 @@ $(function() {
  */
 (function( $ ){
     $.fn.fetch_messages = function() {
-        $.getJSON("message_retriever.php", {senderid: $(this).attr('value')}, function(j) { //Get the messages for a specific conversation
+        $.getJSON("processors/messages_processors.php", {action: 'retrieve',senderid: $(this).attr('value')}, function(j) { //Get the messages for a specific conversation
             var list = $('.message_list');
             var old = list.html(); //Store the message list to be compared with the new one, allows to detect new messages
             list.empty();

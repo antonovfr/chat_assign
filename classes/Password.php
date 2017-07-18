@@ -1,6 +1,6 @@
 <?php
 /**
- * Bcrypt method imported, not written by me
+ * Whole file taken online and not written by me
  */
 if (!defined('PASSWORD_BCRYPT')) {
         define('PASSWORD_BCRYPT', 1);
